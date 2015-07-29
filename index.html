@@ -18,7 +18,7 @@
 	<div></div>
 
 	<script>
-	function Physics() {
+	function Particle() {
 		this.el = document.querySelector('div');
 		this.positionX = 0;
 		this.velocityX = 0;
@@ -27,7 +27,7 @@
 		this.init();
 	}
 
-	Physics.prototype.init = function() {
+	Particle.prototype.init = function() {
 		this.velocityX += this.accelerationX;
 		this.velocityX *= this.friction;
 		this.positionX += this.velocityX;
@@ -36,15 +36,15 @@
 		this.reload();
 	};
 
-	Physics.prototype.update = function() {
+	Particle.prototype.update = function() {
 		this.el.style.transform = 'translateX(' + this.positionX.toFixed(1) + 'px)';
 	};
 
-	Physics.prototype.reload = function() {
+	Particle.prototype.reload = function() {
 		requestAnimationFrame(this.init.bind(this));
 	};
 
-	var p = new Physics();
+	var p = new Particle();
 	</script>
 </body>
 </html>
