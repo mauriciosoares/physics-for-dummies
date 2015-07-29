@@ -22,10 +22,12 @@
 		this.el = document.querySelector('div');
 		this.positionX = 0;
 		this.velocityX = 0;
+		this.friction = 0.95;
 		this.init();
 	}
 
 	Physics.prototype.init = function() {
+		this.velocityX *= this.friction;
 		this.positionX += this.velocityX;
 
 		this.update();
@@ -33,7 +35,7 @@
 	};
 
 	Physics.prototype.update = function() {
-		this.el.style.transform = 'translateX(' + this.positionX + 'px)';
+		this.el.style.transform = 'translateX(' + this.positionX.toFixed(1) + 'px)';
 	};
 
 	Physics.prototype.reload = function() {
