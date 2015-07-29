@@ -22,11 +22,13 @@
 		this.el = document.querySelector('div');
 		this.positionX = 0;
 		this.velocityX = 0;
+		this.accelerationX = 0;
 		this.friction = 0.95;
 		this.init();
 	}
 
 	Physics.prototype.init = function() {
+		this.velocityX += this.accelerationX;
 		this.velocityX *= this.friction;
 		this.positionX += this.velocityX;
 
